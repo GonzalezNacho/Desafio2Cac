@@ -24,3 +24,10 @@ function imprimirEnElHTML (resultado, elementoAnterior) {
     let currentDiv = document.getElementById(elementoAnterior);
     currentDiv.appendChild(newP); 
 }
+
+/*function comprobarNumero (numero) {
+    if (numero > 0 && numero =< 100) {
+
+    }
+
+}*/
