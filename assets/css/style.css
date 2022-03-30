@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(117, 7, 226);
+}
+div h1 {
+    text-shadow: 2px 2px 4px whitesmoke ;
+}
+
+.conteiner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.conteiner .conteiner-lg {
+    background-color: aliceblue;
+    border: 3px solid rgb(79, 76, 76);
+    border-radius: 7px;
+    margin: 10%;
+    padding: 2%;
+    box-shadow: 5px 5px 5px;
+}
+
+.botones {
+    margin: 5%;
+    background-color: rgb(88, 111, 187);
+    color: aliceblue;
+    border-color: black;
+    border-radius: 5px;
+    padding: 2%;
+}
+
+.botones:hover {
+    background-color: aliceblue;
+    color: rgb(88, 111, 187);
+}
+
+@media (max-width:780px) {
+    .conteiner {
+        flex-direction: column;
+    }
+}

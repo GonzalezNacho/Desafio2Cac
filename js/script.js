@@ -1,15 +1,16 @@
-
+let contadorCirculo = 0;
+let contadorTriangulo = 0;
 
 function imprimirResultadoAreaCirculo() {
     let radioCirculoEnTexto = document.getElementById("radioSolicitadoCirculo");
     let radioCirculo = parseFloat(radioCirculoEnTexto.value);
     if (radioCirculo > 0 && radioCirculo <= 100) {
-        imprimirEnElHTML(parseInt(Math.PI * Math.pow(radioCirculo,2)), "formularioCirculo"); 
+        imprimirEnElHTML("resultadoCirculo",parseInt(Math.PI * Math.pow(radioCirculo,2)));
+        imprimirEnElHTML("contadorCirculo",++contadorCirculo); 
     } else {
         imprimirError(radioCirculo,"radio");
     }
 }
-
 
 function imprimirResultadoAreaTriangulo() {
     let alturaTrianguloEnTexto = document.getElementById("alturaSolicitadoTriangulo");
@@ -18,7 +19,8 @@ function imprimirResultadoAreaTriangulo() {
     let alturaTriangulo = parseFloat(alturaTrianguloEnTexto.value);
     if (alturaTriangulo > 0 && baseTriangulo > 0 && alturaTriangulo <= 100 && baseTriangulo <= 100) {
         let resultado = parseInt((baseTriangulo * alturaTriangulo)/2);
-        imprimirEnElHTML(resultado, "formularioTriangulo");  
+        imprimirEnElHTML("resultadoTriangulo",resultado); 
+        imprimirEnElHTML("contadorTriangulo",++contadorTriangulo); 
     } else {
         if (baseTriangulo > 0 && baseTriangulo <= 100) {
             imprimirError(alturaTriangulo,"altura");
@@ -26,15 +28,6 @@ function imprimirResultadoAreaTriangulo() {
             imprimirError(baseTriangulo,"base");
         } 
     }     
-}
-
-
-function imprimirEnElHTML (resultado, elementoAnterior) {
-    let newP = document.createElement("p");
-    let newContent = document.createTextNode("el resultado es: " + resultado);
-    newP.appendChild(newContent);
-    let currentDiv = document.getElementById(elementoAnterior);
-    currentDiv.appendChild(newP); 
 }
 
 function imprimirError (numero,numeroAOperarEnString) {
@@ -45,4 +38,8 @@ function imprimirError (numero,numeroAOperarEnString) {
         error += "\n -Solamente se pueden operar numeros desde 1 a 100";
     }
     alert(error);
+}
+
+function imprimirEnElHTML (tipoContador, valor){
+    document.getElementById(tipoContador).innerHTML = valor;
 }
